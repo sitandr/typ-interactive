@@ -1,6 +1,8 @@
 #import "@preview/lilaq:0.5.0" as lq
 #let inp_field(id, width: "60pt", value) = html.elem("input", attrs: (style: "width:" + width +"; height: 10pt", class: "typst-element typst-update-ontype", typst-action: "update", id: id, value: str(value)))
 
+_Of course, that is very far from the most impressive thing it could do with power of lilaq, I just couln't make up my mind between these two examples._
+
 #let inputs = json(read("input.typ", encoding: none))
 #let inputer(id, default, width: "60pt", end: none) = {
   (

@@ -14,26 +14,28 @@
 - `f`: drop down
 - `w`: flip
 - `c`: hold / get from holded
+
+Powered by powerful soviet-matrix package.
 ]
 
 #let game_block = html.frame(scale(200%, block(game([#input]), inset: (top: 0in - 30pt, bottom: 0.5in + 40pt, rest: 0.5in)), reflow: true))
 
 #show grid: it => context {
   if target() == "html" {
-  let args = it.fields()
-  show grid.cell: it => {
-        let fields = it.fields()
-        let _ = fields.remove("body")
-        table.cell(..fields, it.body)}
-     let children = args.remove("children").map(cell => {
-     if cell.func() == grid.cell {
-        let args = cell.fields()
-        let body = args.remove("body")
-        return table.cell(..args, body)
-     }
-     cell.body
-  })
-  html.div(table(..args, ..children), class: "grid-wrap")
+      let args = it.fields()
+      show grid.cell: it => {
+            let fields = it.fields()
+            let _ = fields.remove("body")
+            table.cell(..fields, it.body)}
+         let children = args.remove("children").map(cell => {
+         if cell.func() == grid.cell {
+            let args = cell.fields()
+            let body = args.remove("body")
+            return table.cell(..args, body)
+         }
+         cell.body
+      })
+      html.div(table(..args, ..children), class: "grid-wrap")
   } else {it}
 }
 

@@ -1,6 +1,6 @@
 #import "@preview/lilaq:0.5.0" as lq
 
-*Wait till it makes a full cycles, it will speed up due to memoization!*
+*Wait till `lilaq` makes it a full cycle, it will speed up due to memoization!*
 
 #let inp_field(id, width: "60pt", value) = html.elem("input", attrs: (style: "width:" + width +"; height: 10pt", class: "typst-element typst-update-ontype", typst-action: "update", id: id, value: str(value)))
 

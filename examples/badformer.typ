@@ -2,7 +2,7 @@
 #let inputs = json(read("input.typ", encoding: none))
 #let input = inputs.input
 
-*Behold: the permadeath interactive version of laurmaedje's 3D platformer*
+*Behold: the permadeath interactive version of laurmaedje's 3D #emph[bad]former*
 
 #html.frame(scale(60%, block(width: 1000pt, height: 700pt, game(input), fill: black), reflow: true))
 
@@ -18,3 +18,24 @@
 Navigation: WASD for moving and rotating, SPACE to jump, E to see the map 
 
 Reach the goal, try using as low moves as possible
+
+
+#show grid: it => context {
+  let args = it.fields()
+  show grid.cell: it => {
+        let fields = it.fields()
+        let _ = fields.remove("body")
+        table.cell(..fields, it.body)}
+      let children = args.remove("children").map(cell => {
+      if cell.func() == grid.cell {
+        let args = cell.fields()
+        let body = args.remove("body")
+        return table.cell(..args, body)
+      }
+      cell.body
+  })
+  html.div(table(..args, ..children), class: "grid-wrap")
+}
+
+
+#grid(columns: 3)[][#button("print w", "↑")][#button("print e", html.div(emoji.map, style: "font-size: 1.5em"))][#button("print a", "←")][#button("print f", "↓")][#button("print d", "→")][#grid.cell(colspan: 3)[#button("print ", "jump", width: "100pt")]]

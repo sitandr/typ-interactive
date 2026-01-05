@@ -48,7 +48,7 @@ function addKeyToInput(ev, keyboard_metadata, key_update) {
 async function processAction(action) {
     console.log(action);
     if (action[0] == "print") { 
-        inputs["input"] += action[1];
+        inputs["input"] += action[1] ? action[1] : " ";
     } else if (action[0] == "reset") {
         inputs["input"] = "";
     } else if (action[0] == "update") {
@@ -81,6 +81,7 @@ async function recompile() {
     let compile_result;
     let old_buttons;
     let b_values = {};
+    let selection;
     let display_element = document.getElementById("display");
     while (update_needed) {
         update_needed = false;
@@ -88,8 +89,9 @@ async function recompile() {
         try {
             old_buttons = document.getElementsByClassName("typst-element");
             for (let old_b of old_buttons) {
-                b_values[old_b.id] = old_b.value;
+                b_values[old_b.id] = old_b.type === "checkbox" ? old_b.checked : old_b.value;
             }
+            selection = [document.activeElement.id, document.activeElement.selectionStart, document.activeElement.selectionEnd];
             inputs["input_elements"] = b_values;
             update_input();
             compile_result = await js_recompile();
@@ -109,8 +111,16 @@ async function recompile() {
         for (let b_id in b_values) {
             let b = document.getElementById(b_id)
             if (b) {
-                b.value = b_values[b_id];
+                if (b.type === "checkbox") {
+                    b.checked = b_values[b_id]; 
+                } else {
+                    b.value = b_values[b_id];
+                }
             }
+        }
+
+        if (selection && document.getElementById(selection[0])) {
+            document.getElementById(selection[0]).setSelectionRange(selection[1],selection[2]);
         }
 
         for (let b of buttons) {
