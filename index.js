@@ -94,10 +94,10 @@ async function recompile() {
             selection = [document.activeElement.id, document.activeElement.selectionStart, document.activeElement.selectionEnd];
             inputs["input_elements"] = b_values;
             update_input();
-            compile_result = await js_recompile();
+            compile_result = js_recompile();
             display_element.innerHTML = compile_result.html;
         } catch (err) {
-            console.log(err);
+            console.error(err);
             err_text = err.map(e => e.message).join("\n ");
         }
     }
@@ -119,7 +119,7 @@ async function recompile() {
             }
         }
 
-        if (selection && document.getElementById(selection[0])) {
+        if (selection && document.getElementById(selection[0]) && document.getElementById(selection[0]).setSelectionRange) {
             document.getElementById(selection[0]).setSelectionRange(selection[1],selection[2]);
         }
 

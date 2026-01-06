@@ -2,6 +2,8 @@
 
 *Wait till `lilaq` makes it a full cycle, it will speed up due to memoization!*
 
+_Pause to edit inputs_
+
 #let inp_field(id, width: "60pt", value) = html.elem("input", attrs: (style: "width:" + width +"; height: 10pt", class: "typst-element typst-update-ontype", typst-action: "update", id: id, value: str(value)))
 
 #let inputs = json(read("input.typ", encoding: none))

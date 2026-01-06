@@ -34,4 +34,4 @@ _Of course, that is very far from the most impressive thing it could do with pow
   )
 ))
 
-#metadata(json.encode((timer: 0.01, cache-size: 10, stop-button: true)))<interact-var>
+#metadata(json.encode((timer: 0.01, cache-size: 1, stop-button: true)))<interact-var>

@@ -29,7 +29,7 @@ export class ErrorSpan {
   hints: string[];
 }
 
-export function js_recompile(): Promise<CompileResult>;
+export function js_recompile(): CompileResult;
 
 export function set_cache_size(cache_size: number): void;
 
@@ -51,7 +51,7 @@ export interface InitOutput {
   readonly __wbg_set_compileresult_metadata: (a: number, b: number, c: number) => void;
   readonly __wbg_set_errorspan_hints: (a: number, b: number, c: number) => void;
   readonly __wbg_set_errorspan_severity: (a: number, b: number) => void;
-  readonly js_recompile: () => number;
+  readonly js_recompile: (a: number) => void;
   readonly set_cache_size: (a: number) => void;
   readonly set_request_f: (a: number) => void;
   readonly update_file: (a: number, b: number, c: number, d: number, e: number, f: number, g: number) => void;
@@ -71,9 +71,6 @@ export interface InitOutput {
   readonly __wbg_set_errorspan_message: (a: number, b: number, c: number) => void;
   readonly __wbg_get_errorspan_message: (a: number, b: number) => void;
   readonly qcms_enable_iccv4: () => void;
-  readonly __wasm_bindgen_func_elem_26222: (a: number, b: number, c: number) => void;
-  readonly __wasm_bindgen_func_elem_26221: (a: number, b: number) => void;
-  readonly __wasm_bindgen_func_elem_6261: (a: number, b: number, c: number, d: number) => void;
   readonly __wbindgen_export: (a: number, b: number) => number;
   readonly __wbindgen_export2: (a: number, b: number, c: number, d: number) => number;
   readonly __wbindgen_export3: (a: number) => void;
