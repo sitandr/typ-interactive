@@ -1,4 +1,4 @@
-#import "@preview/conchord:0.4.0": red-missing-fifth, n-best, get-chords,
+#import "@preview/conchord:0.4.0": red-missing-fifth, n-best, get-chords, chord-notes
 
 
 #let inp_field(id, value, width: "auto", type: "text") = html.elem("input", attrs: (style: "width:" + width +"; height: 10pt", type: type, class: "typst-element typst-update-ontype", typst-action: "update", id: id, ..if (type == "checkbox") {(checked: if value {"true"} else {"false"})} else {(value: str(value))}))
@@ -28,5 +28,6 @@
 
 
 #for c in n-best(get-chords(chordname, true-bass: true-bass, omit-fifth: omit-fifth, tuning: tuning), n: int(best-n)) {
-  box(html.frame(red-missing-fifth(c)))
+  
+  box(html.frame(red-missing-fifth(c) + v(-2em) + h(0.1em) + raw(chord-notes(c, tuning).join("-"))))
 }

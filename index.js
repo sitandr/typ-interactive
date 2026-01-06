@@ -119,7 +119,7 @@ async function recompile() {
             }
         }
 
-        if (selection && document.getElementById(selection[0]) && document.getElementById(selection[0]).setSelectionRange) {
+        if (selection && document.getElementById(selection[0]) && document.getElementById(selection[0]).type == "text") {
             document.getElementById(selection[0]).setSelectionRange(selection[1],selection[2]);
         }
 
