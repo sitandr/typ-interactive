@@ -20,4 +20,4 @@ Typst receives these inputs: #inputs
 // set timer for one second + set input to next recompilations
 #metadata(json.encode((timer: 1, next-input: (a: a, n: n))))<interact-var>
 
-_So the next Typst recompilation eats the data it produced on previous compilation_
+_The next Typst recompilation eats the data it produced on the previous recompilation._
