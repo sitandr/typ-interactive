@@ -1,4 +1,4 @@
-import init, { set_request_f, js_recompile, update_file, set_cache_size } from './typst-interactive.js';
+import init, { set_request_f, js_recompile, update_file, set_cache_size } from './tylighter.js';
 
 const encoder =  new TextEncoder();
 let inputs = {input: "", timer: 0, pressed_key: null};
