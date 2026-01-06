@@ -29,6 +29,14 @@ I see the following ways out:
 
 #line(length: 100%)
 
+= Contributions
+
+Any contributions and issues are welcome, you can either submit an interactive document (e.g., via "share" link), 
+request additional features or adding your favorite package to the site,
+or you can even make changes to the very hastily and roughly written site code, everyone is welcome.
+
+I'm not promising I would be always fast to answer, but eventually I will. Feel free to tag me if I haven't answered.
+
 Github source: https://github.com/sitandr/typ-interactive/
 
 Based on my version of Typst compiler for web: https://github.com/sitandr/tylighter
